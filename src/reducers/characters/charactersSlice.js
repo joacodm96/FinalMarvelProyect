@@ -16,7 +16,7 @@ export const getRandomCharacters = createAsyncThunk(
   }
 );
 
-
+// Crear searchCharacter (usar de guia el de)
 
 export const charactersSlice = createSlice({
   name: 'characters',
