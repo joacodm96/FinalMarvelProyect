@@ -9,5 +9,14 @@
 - Styled Components.
 
 ## Features
-- Responsive Header and Search Bar input.
-- Grid random characters
+- Responsive view.
+- Home page with some random characters.
+- Grid characters.
+- Search characters and comics.
+- Search comics and characters by query parameters.
+- Loader.
+- Redirect to home page clicking on marvel icon.
+
+
+
+
