@@ -33,10 +33,10 @@ export const StyledCard = styled.div`
   background-repeat: no-repeat;
   height: 350px;
   display: flex;
-  width: 100%;
+  
   flex-direction: column;
   justify-content: flex-end;
-  min-width: 250px;
+ 
   transition: all 0.5s ease-in-out;
   &:hover {
     transform: translateY(-5px);

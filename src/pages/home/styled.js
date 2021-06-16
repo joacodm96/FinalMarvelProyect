@@ -36,7 +36,6 @@ export const StyledTabElement = styled.span`
 	margin: 12px;
 	font-weight: bold;
 	cursor: pointer;
-    
 `
 
 export const HomePageComponent = styled.div`

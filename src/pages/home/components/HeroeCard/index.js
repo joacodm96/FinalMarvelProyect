@@ -3,6 +3,7 @@ import {StyledCard, StyledBodyCard} from "./styled"
 
 export const HeroeCard = (props) => {
     return (
+        <div>
         <StyledCard onClick={() => {
             if(props.onClick) {
                 props.onClick()
@@ -17,5 +18,6 @@ export const HeroeCard = (props) => {
             </StyledBodyCard>
         
         </StyledCard>
+        </div>
     )
 }
