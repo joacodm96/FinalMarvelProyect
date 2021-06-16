@@ -1,5 +1,5 @@
 import React from "react";
-import {StyledCard, StyledCardHeader, StyledCardBody} from "./styled"
+import {StyledCard, StyledBodyCard} from "./styled"
 
 export const HeroeCard = (props) => {
     return (
@@ -7,15 +7,14 @@ export const HeroeCard = (props) => {
             if(props.onClick) {
                 props.onClick()
             }
-        }}>
+        }} backgroundImage={props.image}>
         
-            <StyledCardHeader backgroundImage={props.image}/>
                 
-            <StyledCardBody>
+            <StyledBodyCard>
                 <p>
                     {props.name}
                 </p>
-            </StyledCardBody>
+            </StyledBodyCard>
         
         </StyledCard>
     )

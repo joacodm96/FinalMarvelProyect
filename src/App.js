@@ -2,29 +2,35 @@ import React from "react";
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
-import { Home } from "./pages/home/index"
-import { StyledHomePageLayout } from "./styles/layout"
+import { HomePage } from "./pages/home"
+import { ComicPage } from "./pages/comic/"
+import { GlobalLayout } from './styles/GlobalLayout'
+import { PageLayout } from "./shared-components/Layout"
+import { CharactersContainer } from "./shared-components/Layout/styled"
 
-//ACA ENRUTAMOS TODOS NUESTROS COMPONENTES 
-//StyledHomePageLayout (estilo general para la primer pantalla)
-//Home
 
-export default function App() {
+
+function App() {
   return (
     <Router>
-      <StyledHomePageLayout>
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
+      <GlobalLayout />
+      <PageLayout>
         <Switch>
+          <Route path="/comic/:comicId">
+            <ComicPage />
+          </Route>
           <Route path="/">
-            <Home />
+            <CharactersContainer >
+              <HomePage />
+            </CharactersContainer>
           </Route>
         </Switch>
-      </StyledHomePageLayout>
+      </PageLayout>
     </Router>
   );
 }
+
+export default App;
