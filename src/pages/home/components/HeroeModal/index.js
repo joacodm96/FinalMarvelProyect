@@ -25,7 +25,7 @@ export const HeroeModal = (props) => {
                             <Link key={comic.id} to={`/comic/${comic.id}`}>
                                 <div>
                                     <div>
-                                        <img alt="comic image" src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`} />
+                                        <img alt="comic icon" src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`} />
                                     </div>
                                     <div>
                                         {comic.title}
