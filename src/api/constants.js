@@ -1,4 +1,4 @@
-const apiBase = "http://gateway.marvel.com"
+const apiBase = "https://gateway.marvel.com"
 const hash = "cfbfd4fc9edd8acbe45e37c87ab5cba3"
 const accesKey = 'a17e0b037ef914943a9509824d4f1272'
 const authorizedKeyParams = `ts=1&apikey=${accesKey}&hash=${hash}`
