@@ -22,6 +22,7 @@ export const StyledComicDescriptionContainer = styled.div`
     margin-left: 32px;
     width: 30vw;
     
+    
     @media (max-width: 800px) {
         width: 70vw;
     }

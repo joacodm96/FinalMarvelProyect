@@ -1,9 +1,6 @@
 import styled from "styled-components";
 
 
-
-
-
 export const StyledBodyCard = styled.div`
   position: relative;
   overflow: hidden;
@@ -46,7 +43,6 @@ export const StyledFavoriteWrapper = styled.div`
   position: absolute;
   top: 10px;
   right: 10px;
-  z-index: 999;
   background: white;
   padding: 4px 6px;
   border-radius: 6px;

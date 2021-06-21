@@ -20,7 +20,7 @@ export const fetchRandomCharacters = createAsyncThunk(
 			const alphabet = "abcdefghijklmnopqrstuvwxyz"
 
 			const letter = alphabet[Math.floor(Math.random() * alphabet.length)]
-			
+
 			return letter;
 		}
 		const charactersList = await fetchCharacters(generateLetters());
@@ -66,7 +66,7 @@ export const charactersSlice = createSlice({
 					action.payload,
 				]
 			}
-		
+
 			state.favoritesCharacters = newFavoriteList
 			localStorage.setItem("favoritesCharacters", JSON.stringify(newFavoriteList))
 		}
