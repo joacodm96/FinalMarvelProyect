@@ -9,6 +9,7 @@ import {
   fetchRandomCharacters,
   searchCharactersAndComics,
   fetchCharacterComics,
+  updateFavoriteList,
 } from '../../reducers/characters/charactersSlice';
 
 
@@ -34,6 +35,8 @@ export const HomePage = (props) => {
   }, [dispatch])
 
 
+
+
   return (
     <HomePageComponent  >
       {!reducerState.loading && (
@@ -44,12 +47,19 @@ export const HomePage = (props) => {
           >
             CHARACTERS ({reducerState.charactersList.length})
           </StyledTabElement>
-          |
+
           <StyledTabElement
             onClick={() => setActiveView("comics")}
             isActive={activeView === "comics"}
           >
             COMICS ({reducerState.comicsList.length})
+          </StyledTabElement>
+
+          <StyledTabElement
+            onClick={() => setActiveView("favorites")}
+            isActive={activeView === "favorites"}
+          >
+            FAVORITES ({reducerState.favoritesCharacters.length})
           </StyledTabElement>
         </StyledTabsContainer>
       )}
@@ -57,8 +67,8 @@ export const HomePage = (props) => {
         {reducerState.loading && (
           <Loader />
         )}
-        
-        {/* Inside character view: name/image and the onClick to dispatch character's comics on a Modal  */}
+
+        {/* Inside character view: name/image and the onClick to dispatch character's comics on a Modal and to dispatch favorites  */}
         {activeView === "characters" && (
           reducerState.charactersList.map((character) => {
             return (
@@ -66,6 +76,10 @@ export const HomePage = (props) => {
                 key={character.id}
                 name={character.name}
                 image={`${character.thumbnail.path}.${character.thumbnail.extension}`}
+                isFavorite={reducerState.favoritesCharacters.some((favCharacter) => favCharacter.id === character.id)}
+                onFavoriteClick={() => {
+                  dispatch(updateFavoriteList(character))
+                }}
                 onClick={() => {
                   dispatch(fetchCharacterComics(character))
                   setOpenModal(true)
@@ -76,7 +90,7 @@ export const HomePage = (props) => {
         )}
 
 
-          {/* Inside comic view: name/title/image */}
+        {/* Inside comic view: name/title/image */}
         {activeView === "comics" && (
           reducerState.comicsList.map((comic) => {
             return (
@@ -85,14 +99,36 @@ export const HomePage = (props) => {
                   key={comic.id}
                   name={comic.title}
                   image={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
+                  hideFavorites
                 />
               </Link>
             )
           })
         )}
+        {/* Inside favorite list view */}
+        {activeView === "favorites" && (
+          reducerState.favoritesCharacters.map((character, index) => {
+            return (
+              <HeroeCard
+                key={index}
+                name={character.name}
+                image={`${character.thumbnail.path}.${character.thumbnail.extension}`}
+                isFavorite={reducerState.favoritesCharacters.some((favCharacter) => favCharacter.id === character.id)}
+                onFavoriteClick={() => {
+                  dispatch(updateFavoriteList(character))
+                }}
+                onClick={() => {
+                  dispatch(fetchCharacterComics(character))
+                  setOpenModal(true)
+                }}
+              />
+            )
+          })
+        )}
+
       </StyledContainer>
 
-          {/* "Not results found" its landed when the array is empty. //Loader off// */}
+      {/* "Not results found" its landed when the array is empty. //Loader off// */}
       {
         !reducerState.loading && !reducerState.charactersList.length &&
         <NotFoundComponent >

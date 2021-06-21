@@ -13,7 +13,6 @@ export const StyledBodyCard = styled.div`
   height: 60px;
   z-index: 30;
   
-
   p {
     font-size: 20px;
     font-weight: bold;
@@ -22,7 +21,13 @@ export const StyledBodyCard = styled.div`
     text-decoration: none;
     text-align: center;
   }
- 
+`
+export const StyledWrapper = styled.div`
+  position: relative;
+   transition: all 0.5s ease-in-out;
+  &:hover {
+    transform: translateY(-5px);
+}
 `
 
 export const StyledCard = styled.div`
@@ -33,13 +38,20 @@ export const StyledCard = styled.div`
   background-repeat: no-repeat;
   height: 350px;
   display: flex;
-  
   flex-direction: column;
   justify-content: flex-end;
- 
-  transition: all 0.5s ease-in-out;
-  &:hover {
-    transform: translateY(-5px);
+  `
+export const StyledFavoriteWrapper = styled.div`
   
-}
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 999;
+  background: white;
+  padding: 4px 6px;
+  border-radius: 6px;
+ 
+  img {
+    width: 20px;
+  }
   `

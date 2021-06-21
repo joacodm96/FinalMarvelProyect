@@ -4,7 +4,7 @@ import { fetchComicData } from "../../api/fetchData"
 // const statement
 const initialState = {
 	loading: true,
-    comicData: {}
+	comicData: {}
 };
 
 export const fetchComicDetails = createAsyncThunk(
@@ -12,7 +12,7 @@ export const fetchComicDetails = createAsyncThunk(
 	async (id) => {
 		const comicData = await fetchComicData(id);
 
-        return comicData;
+		return comicData;
 	}
 );
 
@@ -27,6 +27,10 @@ export const comicDetailsSlice = createSlice({
 		[fetchComicDetails.fulfilled]: (state, action) => {
 			state.loading = false
 			state.comicData = action.payload
+		},
+		[fetchComicDetails.rejected]: (state) => {
+			state.loading = false
+			alert("Invalid Character, check id")
 		},
 	},
 })
