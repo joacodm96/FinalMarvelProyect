@@ -17,7 +17,10 @@
 - Loader.
 - Redirect to home page clicking on marvel icon.
 
-ScreenShots
+## Deployed
+- https://final-marvel-proyect.vercel.app/
+
+## ScreenShots
 - HomePage 
 ![image](https://user-images.githubusercontent.com/18419617/122143211-65173c00-ce27-11eb-8df2-d025fce2d911.png)
 
